@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+   <style>
+       div,ul,li,dl,dt,dd{
+           margin: 0;
+           padding: 0;
+       }
+       h1{
+           text-align: center;
+       }
+       #food{
+        width: 602px;
+           height: 602px;
+           position:relative;
+           border:1px solid;
+       }
+       #close{
+           width: 200px;
+           height: 200px;
+           background:rgba(0,0,0,0.3);
+           position: absolute;
+           top:200px;
+           left:200px;
+          display:none;
+       }
+       ul,ol{
+           list-style-type:none;
+           overflow:hidden;
+           width: 600px;
+           height: 600px;
+           margin:0 auto;
+           position:relative;
+         
+
+       }
+       ul li{
+           float:left;
+           width: 200px;
+           height: 200px;
+         
+       }
+       ul li dd{
+           position:relative;
+           top:-40px;
+           font-size:22px;
+           text-align: center;
+       }
+ ul li:nth-of-type(1){
+position:absolute;
+top:0;
+left:0;
+       }
+       ul li:nth-of-type(2){
+position:absolute;
+top:0;
+left:200px;
+       }
+       ul li:nth-of-type(3){
+position:absolute;
+top:0;
+left:400px;
+       }
+ul .si{
+position:absolute;
+top:200px;
+left:400px;
+
+}
+ul .wu{
+position:absolute;
+top:400px;
+left:400px;
+
+}
+ul .liu{
+position:absolute;
+top:400px;
+left:200px;
+}
+ul .qi{
+position:absolute;
+top:400px;
+left:0;
+
+}
+ul .ba{
+position:absolute;
+top:200px;
+left:0;
+}
+ul .jiu{
+position:absolute;
+top:200px;
+left:200px;
+z-index:9;
+}
+   </style>
+</head>
+<body>
+<h1>随机选择</h1>
+<div id=food>
+        <div id="close"></div>
+<ul>
+      
+    <li>
+        <dl class="mid">
+            <dt class="middle" ><img src="images/lb1.jpg" alt=""></dt>
+            <dd>蛋黄月饼</dd>
+        </dl>
+    </li>
+    <li>
+        <dl class="mid">
+            <dt class="middle" ><img src="images/lb2.jpg" alt="" ></dt>
+            <dd>蛋糕</dd>
+        </dl>
+    </li>
+    <li>
+        <dl class="mid">
+            <dt class="middle" ><img src="images/lb3.jpg" alt="" ></dt>
+            <dd>甜点</dd>
+        </dl>
+    </li>
+    <li class="si">
+        <dl class="mid">
+            <dt class="middle" ><img src="images/lb4.jpg" alt="" ></dt>
+            <dd>罐罐面</dd>
+        </dl>
+    </li>
+    <li class="wu">
+        <dl class="mid">
+            <dt class="middle" ><img src="images/lb5.jpg" alt="" ></dt>
+            <dd>火腿</dd>
+        </dl>
+    </li>
+    <li class="liu">
+        <dl class="mid">
+            <dt class="middle" ><img src="images/lb6.jpg" alt="" ></dt>
+            <dd>卷饼</dd>
+        </dl>
+    </li>
+    <li class="qi">
+        <dl class="mid">
+            <dt class="middle"><img src="images/lb7.jpg" alt=""></dt>
+            <dd>寿司</dd>
+        </dl>
+    </li>
+    <li class="ba">
+        <dl class="mid">
+            <dt class="middle" ><img src="images/lb8.jpg" alt="" ></dt>
+            <dd>饼干</dd>
+        </dl>
+    </li>
+    <li class="jiu" id="btn">
+    <img src="images/lb9.jpg" alt="" id="pic">
+    </li>
+</ul>
+</div>
+<script>    
+var oLi=document.getElementsByTagName("li");
+var oBtn=document.getElementById("btn");
+var oPic=document.getElementById("pic");
+var num=0,i=0,t=0;
+oBtn.onclick=function(){
+   oPic.style.transform="scale(0.6)";
+   oPic.style.transform="1s";
+   view();//动画视图
+}
+function view(){
+    num=parseInt(Math.random()*10+20);//确定次数
+    if(i<num){//当前次数
+i++;
+setTimeout(view,200);
+console.log(i);
+    }
+    else{
+                i=0;
+        oPic.style.transform="scale(1)";
+        oPic.style.transform="1s";
+    }
+    if(t<oLi.length-1){
+        for(var j=0;j<oLi.length;j++){
+            oLi[j].style.border="";
+            oLi[j].style.background="";
+        }
+   oLi[t].style.border="2px solid #f00";
+   oLi[t].style.background="rgba(255,0,0,0.4)";
+   t++;
+    }
+    else{
+        t=0;
+    }
+
+}
+
+</script>
+</body>
+</html>
